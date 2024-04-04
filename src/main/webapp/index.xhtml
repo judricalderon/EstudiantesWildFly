@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="ISO-8859-1" />
+	<title>TEST JSF</title>
+</h:head>
+
+<h:body>
+	<h:form>
+	<h5>Nombre</h5>
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-4">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                    <p:inputText placeholder="Username" value="#{formularioBean.estudianteDto.nombre}"/>
+                </div>
+            </div>
+            </div>
+            <h5>Cedula</h5>
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-4">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                    <p:inputText placeholder="Username" value="#{formularioBean.estudianteDto.cedula}"/>
+                </div>
+            </div>
+            </div>
+            <h5>Programa</h5>
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-4">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                    <p:inputText placeholder="Username" value="#{formularioBean.estudianteDto.programa}"/>
+                </div>
+            </div>
+            </div>
+            <h5>Correo</h5>
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-4">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                    <p:inputText placeholder="Username" value="#{formularioBean.estudianteDto.correo}"/>
+                </div>
+            </div>
+            </div>
+            <h5>Fecha de Ingreso</h5>
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-4">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                    <p:inputText placeholder="Username" value="#{formularioBean.estudianteDto.fechaIngreso}"/>
+                </div>
+            </div>
+            </div>
+
+    <p:commandButton value="Registrar" action="#{formularioBean.registrarEstudiante}"  />
+       
+	</h:form>
+</h:body>
+</html>
