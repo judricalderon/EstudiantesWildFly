@@ -2,14 +2,16 @@ package co.edu.unbosque.visual;
 
 import java.io.Serializable;
 
+import co.edu.unbosque.exception.EstudianteNoExisteException;
 import co.edu.unbosque.model.EstudianteDto;
 import co.edu.unbosque.service.ServicioRegistro;
 import jakarta.annotation.PostConstruct;
+import jakarta.ejb.ApplicationException;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 
 @Named (value = "formularioBean")
-@RequestScoped
+@ApplicationException
 public class FormularioBean implements Serializable{
 
 	/**
@@ -28,6 +30,17 @@ public class FormularioBean implements Serializable{
 	public void registrarEstudiante() {
 		servicioRegistro.registrarEstudiante(estudianteDto);
 		System.out.println(estudianteDto.getCedula());
+		try {
+			for(EstudianteDto auxDto: servicioRegistro.consultarTodoRegistro()) {
+				System.out.println(auxDto);
+			}
+		} catch (EstudianteNoExisteException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	public String consultaRegistro() {
+		return "consultaRegistro.xhtml";
 	}
 
 	public EstudianteDto getEstudianteDto() {

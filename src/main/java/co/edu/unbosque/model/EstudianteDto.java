@@ -56,4 +56,11 @@ public class EstudianteDto {
 		this.fechaIngreso = fechaIngreso;
 	}
 	
+	@Override
+	public String toString() {
+		return "EstudianteDto [nombre=" + nombre + ", cedula=" + cedula + ", programa=" + programa + ", correo="
+				+ correo + ", fechaIngreso=" + fechaIngreso + "]";
+	}
+	
+	
 }

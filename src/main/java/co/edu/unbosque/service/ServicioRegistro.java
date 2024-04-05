@@ -28,8 +28,8 @@ public class ServicioRegistro {
 		return estudianteDao.consultar(DataMapper.deDtoAEstudiante(estudianteDto).getCedula());
 	}
 	
-	public ArrayList<Estudiante> consultarTodoRegistro(EstudianteDto estudianteDto) throws EstudianteNoExisteException {
-		return estudianteDao.consultarResgitro();
+	public ArrayList<EstudianteDto> consultarTodoRegistro() throws EstudianteNoExisteException {
+		return DataMapper.deArrayAEstudiantesADto(estudianteDao.consultarResgitro());
 	}
 	
 }
