@@ -7,6 +7,7 @@ import co.edu.unbosque.model.EstudianteDto;
 import co.edu.unbosque.service.ServicioRegistro;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 @Named (value = "formularioBean")
@@ -17,13 +18,15 @@ public class FormularioBean implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private EstudianteDto estudianteDto;
+	@Inject
 	private ServicioRegistro servicioRegistro;
 	
 	@PostConstruct
 	public void init() {
 		estudianteDto = new EstudianteDto();
-		servicioRegistro = new ServicioRegistro();
+
 	}
 	
 	public void registrarEstudiante() {

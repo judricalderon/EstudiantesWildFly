@@ -1,7 +1,25 @@
 package co.edu.unbosque.model;
 
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "djestudiantes")
 public class Estudiante {
-private String nombre,cedula,programa,correo,fechaIngreso;
+	@Id
+	@Column(name="cedula_estudiante")
+	private String cedula;
+	@Column(name="nombre_estudiante")
+	private String nombre;
+	@Column(name="programa_estudiante")
+	private String programa;
+	@Column(name="correo_estudiante")
+	private String correo;
+	@Column(name="fecha_ingreso")
+	private String fechaIngreso;
 
 public Estudiante(String nombre, String cedula, String programa, String correo, String fechaIngreso) {
 	
@@ -12,7 +30,11 @@ public Estudiante(String nombre, String cedula, String programa, String correo, 
 	this.fechaIngreso = fechaIngreso;
 }
 
-public String getNombre() {
+	public Estudiante() {
+
+	}
+
+	public String getNombre() {
 	return nombre;
 }
 

@@ -4,12 +4,21 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.exception.EstudianteNoExisteException;
 import co.edu.unbosque.model.Estudiante;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.PersistenceContext;
 
+@Stateless
 public class EstudianteDao implements EstudianteDaoInterface<Estudiante, String> {
+	@PersistenceContext (unitName="estudiantesPU")
+	private EntityManager manager;
+
 
 	@Override
 	public void crear(Estudiante t) {
-		DataSource.crearEstudiante(t);
+	//	DataSource.crearEstudiante(t);
+		manager.persist(t);
 		
 	}
 

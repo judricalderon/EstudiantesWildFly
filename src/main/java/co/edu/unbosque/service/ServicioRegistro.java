@@ -8,12 +8,15 @@ import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.EstudianteDto;
 import co.edu.unbosque.model.persistence.EstudianteDao;
 import co.edu.unbosque.model.persistence.EstudianteDaoInterface;
-
+import jakarta.ejb.Stateless;
+import jakarta.inject.Inject;
+@Stateless
 public class ServicioRegistro {
-
+	@Inject
 	private EstudianteDaoInterface<Estudiante, String> estudianteDao;
+
 	public ServicioRegistro() {
-		estudianteDao = new EstudianteDao();
+
 	}
 	
 	public void registrarEstudiante(EstudianteDto estudianteDto) {
