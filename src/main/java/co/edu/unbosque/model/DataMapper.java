@@ -4,20 +4,15 @@ import java.util.ArrayList;
 
 public class DataMapper {
 
-	
+	//estudiante
 	public static EstudianteDto deEstudianteADto(Estudiante estudiante) {
 		 EstudianteDto aux = new EstudianteDto(estudiante.getNombre(), estudiante.getCedula(), estudiante.getPrograma(), estudiante.getCorreo(), estudiante.getFechaIngreso());
 		 return aux;
 		}
-
-
-
 	public static Estudiante deDtoAEstudiante(EstudianteDto estudianteDto) {
 	 Estudiante aux = new Estudiante(estudianteDto.getNombre(), estudianteDto.getCedula(), estudianteDto.getPrograma(), estudianteDto.getCorreo(), estudianteDto.getFechaIngreso());
 	 return aux;
 	 }
-	
-	
 	public static ArrayList<EstudianteDto> deArrayAEstudiantesADto(ArrayList<Estudiante> estudiantes){
 		ArrayList<EstudianteDto> aux = new ArrayList<EstudianteDto>();
 		for (Estudiante auxDto : estudiantes) {
@@ -25,7 +20,6 @@ public class DataMapper {
 		}
 		return aux;
 	}
-
 public static ArrayList<Estudiante> deArrayDtoAEstudiantes(ArrayList<EstudianteDto> estudiantesDto){
 		ArrayList<Estudiante> aux = new ArrayList<Estudiante>();
 		for (EstudianteDto auxDto : estudiantesDto) {
@@ -33,6 +27,17 @@ public static ArrayList<Estudiante> deArrayDtoAEstudiantes(ArrayList<EstudianteD
 		}
 		return aux;
 	}
-	
+
+	//Usuario
+
+	public static UsuarioDto deUsuarioADto(Usuario usuario) {
+		UsuarioDto aux = new UsuarioDto(usuario.getUsuario(), usuario.getPassword());
+		return aux;
+	}
+
+	public static Usuario deDtoAUsuario(UsuarioDto usuarioDto) {
+		Usuario aux = new Usuario(usuarioDto.getUsuario(), usuarioDto.getPassword());
+		return aux;
+	}
 
 }
