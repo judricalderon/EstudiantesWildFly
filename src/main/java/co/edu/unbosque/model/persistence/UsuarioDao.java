@@ -13,8 +13,15 @@ public class UsuarioDao implements UsuarioDaoInterface<Usuario,String>{
 
 
     @Override
-    public Usuario consultar(String s) {
+    public Usuario read(String s) {
 
         return manager.find(Usuario.class, s);
     }
+
+    @Override
+    public void update(Usuario usuario) {
+        manager.merge(usuario);
+    }
+
+
 }

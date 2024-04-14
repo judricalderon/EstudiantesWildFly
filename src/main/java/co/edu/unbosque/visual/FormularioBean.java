@@ -6,12 +6,12 @@ import co.edu.unbosque.exception.EstudianteNoExisteException;
 import co.edu.unbosque.model.EstudianteDto;
 import co.edu.unbosque.service.ServicioRegistro;
 import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 @Named (value = "formularioBean")
-@RequestScoped
+@ApplicationScoped
 public class FormularioBean implements Serializable{
 
 	/**
@@ -22,6 +22,8 @@ public class FormularioBean implements Serializable{
 	private EstudianteDto estudianteDto;
 	@Inject
 	private ServicioRegistro servicioRegistro;
+	@Inject
+	private LoginBean loginBean;
 	
 	@PostConstruct
 	public void init() {
@@ -30,17 +32,16 @@ public class FormularioBean implements Serializable{
 	}
 	
 	public void registrarEstudiante() {
-		servicioRegistro.registrarEstudiante(estudianteDto);
-		
-		try {
-			for (EstudianteDto auxDto: servicioRegistro.consultarTodoRegistro()) {
-				System.out.println(auxDto);
-			}
-		} catch (EstudianteNoExisteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		servicioRegistro.registrarEstudiante(estudianteDto,loginBean.getUsuario().getUsuario());
+		System.out.println("Estudiante registrada con exito");
 	}
+	public void modificarEstudiante() throws EstudianteNoExisteException {
+        try {
+            servicioRegistro.modificarRegistroEstudiante(estudianteDto);
+        } catch (EstudianteNoExisteException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 	public EstudianteDto getEstudianteDto() {
 		return estudianteDto;
@@ -57,5 +58,6 @@ public class FormularioBean implements Serializable{
 	public void setServicioRegistro(ServicioRegistro servicioRegistro) {
 		this.servicioRegistro = servicioRegistro;
 	}
-	
+
+
 }

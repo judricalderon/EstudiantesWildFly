@@ -5,21 +5,34 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "usuarios")
+@Table(name = "users")
 public class Usuario {
     @Id
     @Column (name="user_name")
     private String usuario;
-    @Column (name="password_name")
+    @Column (name="user_pwd ")
     private String password;
+    @Column (name = "last_login ")
+    private LocalDateTime lastLogin;
 
     public Usuario() {
     }
 
-    public Usuario(String usuario, String password ) {
-        this.usuario = usuario;
+    public Usuario(String usuario,String password, LocalDateTime lastLogin) {
         this.password = password;
+        this.usuario = usuario;
+        this.lastLogin = lastLogin;
+    }
+
+    public LocalDateTime getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
     public String getPassword() {

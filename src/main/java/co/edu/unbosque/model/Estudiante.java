@@ -7,27 +7,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "djestudiantes")
+@Table(name = "estudiantes")
 public class Estudiante {
 	@Id
 	@Column(name="cedula_estudiante")
 	private String cedula;
 	@Column(name="nombre_estudiante")
 	private String nombre;
+	@Column(name="apellido_estudiante")
+	private String apellido;
 	@Column(name="programa_estudiante")
 	private String programa;
-	@Column(name="correo_estudiante")
-	private String correo;
-	@Column(name="fecha_ingreso")
-	private String fechaIngreso;
+	@Column(name="creado_por")
+	private String creado_por ;
 
-public Estudiante(String nombre, String cedula, String programa, String correo, String fechaIngreso) {
-	
-	this.nombre = nombre;
+public Estudiante(String nombre, String cedula, String apellido, String programa, String creado_por) {
 	this.cedula = cedula;
+	this.nombre = nombre;
+	this.apellido = apellido;
 	this.programa = programa;
-	this.correo = correo;
-	this.fechaIngreso = fechaIngreso;
+	this.creado_por = creado_por;
+
 }
 
 	public Estudiante() {
@@ -58,21 +58,11 @@ public void setPrograma(String programa) {
 	this.programa = programa;
 }
 
-public String getCorreo() {
-	return correo;
-}
+public String getApellido() {return apellido;}
 
-public void setCorreo(String correo) {
-	this.correo = correo;
-}
+	public void setApellido(String apellido) {this.apellido = apellido;}
 
-public String getFechaIngreso() {
-	return fechaIngreso;
-}
+	public String getCreado_por() {	return creado_por;}
 
-public void setFechaIngreso(String fechaIngreso) {
-	this.fechaIngreso = fechaIngreso;
-}
-
-
+	public void setCreado_por(String creado_por) {this.creado_por = creado_por;	}
 }

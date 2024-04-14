@@ -7,10 +7,22 @@
 <h:head>
     <meta charset="ISO-8859-1" />
     <title>TEST JSF</title>
+    <style>
+        .ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell {
+            text-align: center;
+        }
+
+        .customPanelGrid .ui-panelgrid-content {
+            align-items: center;
+        }
+    </style>
 
 </h:head>
 
 <h:body>
+    <div class="card">
+    <h5 style="margin-top:0">Basic</h5>
+    <p:panelGrid columns="2">
     <h:form>
         <h5>Usuario</h5>
         <div class="grid ui-fluid">
@@ -33,6 +45,8 @@
         <p:commandButton value="Login" action="#{loginBean.validacionUsuario}"  />
 
     </h:form>
+    </p:panelGrid>
+    </div>
 
 </h:body>
 </html>

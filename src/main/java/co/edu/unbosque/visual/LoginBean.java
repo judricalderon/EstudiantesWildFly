@@ -5,13 +5,14 @@ import co.edu.unbosque.model.EstudianteDto;
 import co.edu.unbosque.model.UsuarioDto;
 import co.edu.unbosque.service.ServicioLogin;
 import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
 @Named(value = "loginBean")
-@RequestScoped
+@ApplicationScoped
 public class LoginBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,10 +23,13 @@ public class LoginBean implements Serializable {
     public void init() {
         usuario = new UsuarioDto();
     }
+    public LoginBean(){
+
+    }
     public String validacionUsuario(){
-       if(servicioLogin.validarUsuario(usuario.getUsuario(),usuario.getPassword())){
+       if(servicioLogin.validarUsuario(usuario)){
            System.out.println(usuario);
-        return "formulario.xhtml";}
+        return "menu.xhtml";}
        else{
         System.out.println(usuario);
            return "login.xhtml";}

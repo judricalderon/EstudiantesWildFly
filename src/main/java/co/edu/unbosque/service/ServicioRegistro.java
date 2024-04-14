@@ -6,7 +6,6 @@ import co.edu.unbosque.exception.EstudianteNoExisteException;
 import co.edu.unbosque.model.DataMapper;
 import co.edu.unbosque.model.Estudiante;
 import co.edu.unbosque.model.EstudianteDto;
-import co.edu.unbosque.model.persistence.EstudianteDao;
 import co.edu.unbosque.model.persistence.EstudianteDaoInterface;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -19,20 +18,22 @@ public class ServicioRegistro {
 
 	}
 	
-	public void registrarEstudiante(EstudianteDto estudianteDto) {
-		
-		estudianteDao.crear(DataMapper.deDtoAEstudiante(estudianteDto));
+	public void registrarEstudiante(EstudianteDto estudianteDto, String nombreUsuario) {
+		estudianteDto.setCreado_por(nombreUsuario);
+		estudianteDao.create(DataMapper.deDtoAEstudiante(estudianteDto));
 	}
+
 	public void modificarRegistroEstudiante(EstudianteDto estudianteDto) throws EstudianteNoExisteException {
-		estudianteDao.modificar(DataMapper.deDtoAEstudiante(estudianteDto));
+		EstudianteDto aux = DataMapper.deEstudianteADto(estudianteDao.read(estudianteDto.getCedula()));
+		aux.setNombre(estudianteDto.getNombre());
+		aux.setApellido(estudianteDto.getApellido());
+		aux.setPrograma(estudianteDto.getPrograma());
+		estudianteDao.Update(DataMapper.deDtoAEstudiante(aux));
 	}
 	
 	public Estudiante consultarRegistroEstudiante(EstudianteDto estudianteDto) throws EstudianteNoExisteException {
-		return estudianteDao.consultar(DataMapper.deDtoAEstudiante(estudianteDto).getCedula());
+		return estudianteDao.read(DataMapper.deDtoAEstudiante(estudianteDto).getCedula());
 	}
 	
-	public ArrayList<EstudianteDto> consultarTodoRegistro() throws EstudianteNoExisteException {
-		return DataMapper.deArrayAEstudiantesADto(estudianteDao.consultarResgitro());
-	}
-	
+
 }

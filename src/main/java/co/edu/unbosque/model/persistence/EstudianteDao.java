@@ -16,28 +16,34 @@ public class EstudianteDao implements EstudianteDaoInterface<Estudiante, String>
 
 
 	@Override
-	public void crear(Estudiante t) {
+	public void create(Estudiante t) {
 	//	DataSource.crearEstudiante(t);
 		manager.persist(t);
 		
 	}
 
 	@Override
-	public void modificar(Estudiante t) throws EstudianteNoExisteException  {
-		DataSource.modificarEstudiante(t);
-		
+	public void Update(Estudiante t) throws EstudianteNoExisteException  {
+		manager.merge(t);
 	}
 
 	@Override
-	public Estudiante consultar(String k) throws EstudianteNoExisteException {
-		Estudiante aux =DataSource.consultarEstudiante(k);
-		return aux;
+	public Estudiante read(String k) throws EstudianteNoExisteException {
+
+		return manager.find(Estudiante.class, k);
+	}
+
+	@Override
+	public void delete(String s) throws EstudianteNoExisteException {
+	manager.remove(read(s));
+
 	}
 
 	@Override
 	public ArrayList<Estudiante> consultarResgitro() throws EstudianteNoExisteException {
 		
-		return DataSource.registroEstudiantes;
+		//return DataSource.registroEstudiantes;
+	return null;
 	}
 
 }

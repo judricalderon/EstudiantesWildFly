@@ -1,7 +1,6 @@
 package co.edu.unbosque.model.persistence;
 
-import co.edu.unbosque.exception.EstudianteNoExisteException;
-
 public interface UsuarioDaoInterface <T,K>{
-    T consultar(K k);
+    T read(K k);
+    void update(T t);
 }
