@@ -30,6 +30,9 @@ public class ServicioRegistro {
 		aux.setPrograma(estudianteDto.getPrograma());
 		estudianteDao.Update(DataMapper.deDtoAEstudiante(aux));
 	}
+	public void borrarEstudiante(String cedula) throws EstudianteNoExisteException {
+		estudianteDao.delete(cedula);
+	}
 	
 	public Estudiante consultarRegistroEstudiante(EstudianteDto estudianteDto) throws EstudianteNoExisteException {
 		return estudianteDao.read(DataMapper.deDtoAEstudiante(estudianteDto).getCedula());

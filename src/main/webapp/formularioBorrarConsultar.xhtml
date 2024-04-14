@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta charset="ISO-8859-1" />
+    <title>TEST JSF</title>
+    <style>
+        .ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell {
+            text-align: center;
+        }
+
+        .customPanelGrid .ui-panelgrid-content {
+            align-items: center;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="card">
+        <h5 style="margin-top:0">Basic</h5>
+        <p:panelGrid columns="2">
+            <h:form>
+               >
+                <h5>Cedula</h5>
+                <a >Para eliminar un estudiante por favor ingrese el numero de cedula</a>
+                <div class="grid ui-fluid">
+                    <div class="col-12 md:col-4">
+                        <div class="ui-inputgroup">
+                            <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                            <p:inputText placeholder="Cedula" value="#{formularioBean.estudianteDto.cedula}"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <p:commandButton value="Borrar" action="#{formularioBean.borrarEstudiante}"  />
+                <p:commandButton value="Modificar" action="#{formularioBean.modificarEstudiante}"  />
+
+            </h:form>
+        </p:panelGrid>
+    </div>
+</h:body>
+</html>

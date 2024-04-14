@@ -22,8 +22,7 @@ public class FormularioBean implements Serializable{
 	private EstudianteDto estudianteDto;
 	@Inject
 	private ServicioRegistro servicioRegistro;
-	@Inject
-	private LoginBean loginBean;
+
 	
 	@PostConstruct
 	public void init() {
@@ -31,13 +30,20 @@ public class FormularioBean implements Serializable{
 
 	}
 	
-	public void registrarEstudiante() {
-		servicioRegistro.registrarEstudiante(estudianteDto,loginBean.getUsuario().getUsuario());
+	public void registrarEstudiante(String nombre) {
+		servicioRegistro.registrarEstudiante(estudianteDto, nombre);
 		System.out.println("Estudiante registrada con exito");
 	}
 	public void modificarEstudiante() throws EstudianteNoExisteException {
         try {
             servicioRegistro.modificarRegistroEstudiante(estudianteDto);
+        } catch (EstudianteNoExisteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+	public void borrarEstudiante(){
+        try {
+            servicioRegistro.borrarEstudiante(estudianteDto.getCedula());
         } catch (EstudianteNoExisteException e) {
             throw new RuntimeException(e);
         }
