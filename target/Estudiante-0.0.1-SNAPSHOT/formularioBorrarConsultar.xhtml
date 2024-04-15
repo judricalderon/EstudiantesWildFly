@@ -39,12 +39,13 @@
                 <p:commandButton value="Borrar" action="#{formularioBean.borrarEstudiante}"  />
                 <p:commandButton value="Mostrar" action="#{formularioBean.mostrarEstudiante()}"  />
                 <div class="card">
-                    <a href="menu.xhtml">inicio</a>
+                    <a href="menu.xhtml">Menu</a>
                 </div>
 
             </h:form>
 
          <div class="card">
+             <h5>Tabla de los datos consultados</h5>
                   <p:dataTable var="estudianteDto" value="#{formularioBean.estudiantesDto}">
                       <p:column headerText="Code">
                           <h:outputText value="#{estudianteDto.cedula}" />

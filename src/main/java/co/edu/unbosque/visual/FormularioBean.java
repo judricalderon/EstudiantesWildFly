@@ -58,11 +58,15 @@ public class FormularioBean implements Serializable{
         try {
             estudianteDto = servicioRegistro.mostrarEstudiante(estudianteDto.getCedula());
 			System.out.println(estudianteDto);
-			estudiantesDto.add(estudianteDto);
+			if(!estudiantesDto.contains(estudianteDto)){
+				estudiantesDto.clear();
+				estudiantesDto.add(estudianteDto);
+			}
+
         } catch (EstudianteNoExisteException e) {
             throw new RuntimeException(e);
         }
-		return "menu.xhtml";
+		return "tablaConsultas.xhtml";
     }
 
 	public ArrayList<EstudianteDto> getEstudiantesDto() {
