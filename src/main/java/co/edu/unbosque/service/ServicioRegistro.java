@@ -1,7 +1,5 @@
 package co.edu.unbosque.service;
 
-import java.util.ArrayList;
-
 import co.edu.unbosque.exception.EstudianteNoExisteException;
 import co.edu.unbosque.model.DataMapper;
 import co.edu.unbosque.model.Estudiante;
@@ -19,7 +17,7 @@ public class ServicioRegistro {
 	}
 	
 	public void registrarEstudiante(EstudianteDto estudianteDto, String nombreUsuario) {
-		estudianteDto.setCreado_por(nombreUsuario);
+		estudianteDto.setCreadoPor(nombreUsuario);
 		estudianteDao.create(DataMapper.deDtoAEstudiante(estudianteDto));
 	}
 
@@ -32,6 +30,11 @@ public class ServicioRegistro {
 	}
 	public void borrarEstudiante(String cedula) throws EstudianteNoExisteException {
 		estudianteDao.delete(cedula);
+	}
+	public EstudianteDto mostrarEstudiante(String cedula) throws EstudianteNoExisteException {
+		EstudianteDto estudianteDto = DataMapper.deEstudianteADto(estudianteDao.read(cedula));
+		System.out.println(estudianteDto);
+		return estudianteDto;
 	}
 	
 	public Estudiante consultarRegistroEstudiante(EstudianteDto estudianteDto) throws EstudianteNoExisteException {

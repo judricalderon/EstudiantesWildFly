@@ -36,10 +36,37 @@
                 </div>
 
 
-                <p:commandButton value="Borrar" action="#{formularioBean.borrarEstudiante()}"  />
-                <p:commandButton value="Modificar" action="#{formularioBean.modificarEstudiante}"  />
+                <p:commandButton value="Borrar" action="#{formularioBean.borrarEstudiante}"  />
+                <p:commandButton value="Mostrar" action="#{formularioBean.mostrarEstudiante()}"  />
+                <div class="card">
+                    <a href="menu.xhtml">inicio</a>
+                </div>
 
             </h:form>
+
+         <div class="card">
+                  <p:dataTable var="estudianteDto" value="#{formularioBean.estudiantesDto}">
+                      <p:column headerText="Code">
+                          <h:outputText value="#{estudianteDto.cedula}" />
+                      </p:column>
+
+                      <p:column headerText="Name">
+                          <h:outputText value="#{estudianteDto.nombre}" />
+                      </p:column>
+
+                      <p:column headerText="Apellido">
+                          <h:outputText value="#{estudianteDto.apellido}" />
+                      </p:column>
+
+                      <p:column headerText="Programa">
+                          <h:outputText value="#{estudianteDto.programa}" />
+                      </p:column>
+                      <p:column headerText="Programa">
+                          <h:outputText value="#{estudianteDto.creadoPor}" />
+                      </p:column>
+                  </p:dataTable>
+              </div>
+
         </p:panelGrid>
     </div>
 </h:body>

@@ -61,8 +61,12 @@
             </div>
 
 
-    <p:commandButton value="Registrar" action="#{formularioBean.registrarEstudiante}"  />
+    <p:commandButton value="Registrar" action="#{formularioBean.registrarEstudiante(loginBean.usuario.usuario)}"  />
         <p:commandButton value="Modificar" action="#{formularioBean.modificarEstudiante}"  />
+
+        <div class="card">
+            <a href="menu.xhtml">inicio</a>
+        </div>
        
 	</h:form>
     </p:panelGrid>

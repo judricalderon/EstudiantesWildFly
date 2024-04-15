@@ -19,14 +19,14 @@ public class Estudiante {
 	@Column(name="programa_estudiante")
 	private String programa;
 	@Column(name="creado_por")
-	private String creado_por ;
+	private String creadoPor;
 
-public Estudiante(String nombre, String cedula, String apellido, String programa, String creado_por) {
+public Estudiante(String nombre, String cedula, String apellido, String programa, String creadoPor) {
 	this.cedula = cedula;
 	this.nombre = nombre;
 	this.apellido = apellido;
 	this.programa = programa;
-	this.creado_por = creado_por;
+	this.creadoPor = creadoPor;
 
 }
 
@@ -62,7 +62,7 @@ public String getApellido() {return apellido;}
 
 	public void setApellido(String apellido) {this.apellido = apellido;}
 
-	public String getCreado_por() {	return creado_por;}
+	public String getCreadoPor() {	return creadoPor;}
 
-	public void setCreado_por(String creado_por) {this.creado_por = creado_por;	}
+	public void setCreadoPor(String creadopor) {this.creadoPor = creadopor;	}
 }

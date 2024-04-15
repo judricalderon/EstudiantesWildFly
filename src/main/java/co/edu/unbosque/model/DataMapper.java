@@ -6,11 +6,11 @@ public class DataMapper {
 
 	//estudiante
 	public static EstudianteDto deEstudianteADto(Estudiante estudiante) {
-		 EstudianteDto aux = new EstudianteDto(estudiante.getNombre(), estudiante.getCedula(),estudiante.getApellido(), estudiante.getPrograma(), estudiante.getCreado_por());
+		 EstudianteDto aux = new EstudianteDto(estudiante.getNombre(), estudiante.getCedula(),estudiante.getApellido(), estudiante.getPrograma(), estudiante.getCreadoPor());
 		 return aux;
 		}
 	public static Estudiante deDtoAEstudiante(EstudianteDto estudianteDto) {
-	 Estudiante aux = new Estudiante(estudianteDto.getNombre(), estudianteDto.getCedula(),estudianteDto.getApellido(), estudianteDto.getPrograma(), estudianteDto.getCreado_por());
+	 Estudiante aux = new Estudiante(estudianteDto.getNombre(), estudianteDto.getCedula(),estudianteDto.getApellido(), estudianteDto.getPrograma(), estudianteDto.getCreadoPor());
 	 return aux;
 	 }
 	public static ArrayList<EstudianteDto> deArrayAEstudiantesADto(ArrayList<Estudiante> estudiantes){

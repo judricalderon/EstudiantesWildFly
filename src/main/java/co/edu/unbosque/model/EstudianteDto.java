@@ -2,15 +2,15 @@ package co.edu.unbosque.model;
 
 public class EstudianteDto {
 
-	private String nombre,apellido,cedula,programa,fechaIngreso,creado_por;
+	private String nombre,apellido,cedula,programa, creadoPor;
 
-	public EstudianteDto(String nombre, String cedula, String apellido, String programa, String creado_por) {
+	public EstudianteDto(String nombre, String cedula, String apellido, String programa, String creadoPor) {
 		
 		this.nombre = nombre;
 		this.cedula = cedula;
 		this.programa = programa;
 		this.apellido = apellido;
-		this.creado_por = creado_por;
+		this.creadoPor = creadoPor;
 	}
 	public EstudianteDto() {
 		
@@ -44,15 +44,18 @@ public class EstudianteDto {
 
 	public void setApellido(String apellido) {this.apellido = apellido;	}
 
-	public String getCreado_por() {	return creado_por;}
+	public String getCreadoPor() {	return creadoPor;}
 
-	public void setCreado_por(String creado_por) {this.creado_por = creado_por;	}
+	public void setCreadoPor(String creadoPor) {this.creadoPor = creadoPor;	}
 
-
-
-
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "EstudianteDto{" +
+				"nombre='" + nombre + '\'' +
+				", apellido='" + apellido + '\'' +
+				", cedula='" + cedula + '\'' +
+				", programa='" + programa + '\'' +
+				", creadoPor='" + creadoPor + '\'' +
+				'}';
+	}
 }
